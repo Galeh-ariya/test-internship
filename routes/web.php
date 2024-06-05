@@ -19,6 +19,16 @@ Route::get('/dashboard/insert', [DashboardController::class, 'insert'])->middlew
 
 Route::POST('/dashboard/insert', [DashboardController::class, 'addAll'])->middleware('auth')->middleware('admin')->name('dashboard');
 
+Route::get('/dashboard/edit', function () {
+    return redirect()->back();
+})->middleware('auth')->middleware('admin')->name('dashboard');
+Route::post('/dashboard/edit', [DashboardController::class, 'edit'])->middleware('auth')->middleware('admin')->name('dashboard');
+Route::get('/dashboard/edit/confirm', function () {
+    return redirect()->back();
+})->middleware('auth')->middleware('admin')->name('dashboard');
+Route::put('/dashboard/edit/confirm', [DashboardController::class, 'editConfirm'])->middleware('auth')->middleware('admin')->name('dashboard');
+Route::post('/dashboard/delete', [DashboardController::class, 'delete'])->middleware('auth')->middleware('admin')->name('dashboard');
+
 Route::get('/home', function () {
     return "home";
 })->middleware('auth')->name('home');
