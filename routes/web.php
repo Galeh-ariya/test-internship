@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OwnerController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -29,6 +30,4 @@ Route::get('/dashboard/edit/confirm', function () {
 Route::put('/dashboard/edit/confirm', [DashboardController::class, 'editConfirm'])->middleware('auth')->middleware('admin')->name('dashboard');
 Route::post('/dashboard/delete', [DashboardController::class, 'delete'])->middleware('auth')->middleware('admin')->name('dashboard');
 
-Route::get('/home', function () {
-    return "home";
-})->middleware('auth')->name('home');
+Route::get('/home', [OwnerController::class, 'index'])->middleware('auth')->name('home');

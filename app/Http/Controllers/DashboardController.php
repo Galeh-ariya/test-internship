@@ -14,7 +14,12 @@ class DashboardController extends Controller
 
         return view('index', compact('products'));
     }
+    // public function owner()
+    // {
+       
 
+    //     return view('owner');
+    // }
     public function insert()
     {
        
